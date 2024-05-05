@@ -1,4 +1,3 @@
-<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 收集表单数据
     $username = $_POST['username'];
@@ -27,4 +26,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 可以根据需要重定向用户到另一个页面
     header('Location: thank_you.html');
 }
-?>
+
