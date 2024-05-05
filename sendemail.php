@@ -28,6 +28,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     mail($to, $email_subject, $email_body, $headers);
 
     // 可以根据需要重定向用户到另一个页面
-    header('Location: thank_you.html');
+    header('Location: blog-single.html');
 }
 ?>
