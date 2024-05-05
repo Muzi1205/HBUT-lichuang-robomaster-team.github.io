@@ -1,3 +1,4 @@
+<?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 收集表单数据
     $username = $_POST['username'];
@@ -5,12 +6,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $subject = $_POST['subject'];
     $phone = $_POST['phone'];
     $message = $_POST['message'];
-    
-    // 邮箱地址
-    $to = "3128096215@qq.com"; // 将此替换为你想要接收邮件的邮箱地址
+
+    // 设置收件人邮箱
+    $to = "3128096215@qq.com";
 
     // 邮件主题
-    $email_subject = "成功送达！";
+    $email_subject = "New Contact Form Submission";
 
     // 邮件内容
     $email_body = "You have received a new message from the contact form on your website.\n\n".
@@ -21,9 +22,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   "Message:\n$message";
 
     // 发送邮件
-    mail($to, $email_subject, $email_body);
+    $headers = "From: $email";
+
+    // 使用mail()函数发送邮件
+    mail($to, $email_subject, $email_body, $headers);
 
     // 可以根据需要重定向用户到另一个页面
     header('Location: thank_you.html');
 }
-
+?>
